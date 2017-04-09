@@ -3,7 +3,7 @@
 #include <SPI.h>
 
 #define SS_PIN 10
-#define RST_PIN 9
+#define RST_PIN 11
 
 RFIDController::RFIDController(): mfrc(SS_PIN, RST_PIN)
 {   }
@@ -26,5 +26,5 @@ void RFIDController::CheckForCard()
 		return;//if ReadCardSerial returns 1, the "uid" struct (see MFRC522.h lines 238-45)) contains the ID of the read card.
 
 	// Dump debug info about the card. PICC_HaltA() is automatically called.
-	mfrc.PICC_DumpToSerial(&(mfrc.uid));
+	mfrc.PICC_DumpToSerial(&(mfrc.uid));	
 }

@@ -8,15 +8,24 @@
     <ClInclude Include="RFID\RFIDController.h">
       <Filter>RFID</Filter>
     </ClInclude>
+    <ClInclude Include="Ethernet\EthernetController.h">
+      <Filter>Ethernet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RFID">
       <UniqueIdentifier>{fd8acd68-ad62-458a-818f-be846f5b890b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ethernet">
+      <UniqueIdentifier>{29d9c4b1-d160-4bc5-855b-72852b514043}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RFID\RFIDController.cpp">
       <Filter>RFID</Filter>
+    </ClCompile>
+    <ClCompile Include="Ethernet\EthernetController.cpp">
+      <Filter>Ethernet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,7 +1,6 @@
 ﻿#include "RFID\RFIDController.h"
 
 RFIDController rfid;
-EthernetController eth;
 
 void setup() 
 {
