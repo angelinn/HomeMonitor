@@ -17,15 +17,9 @@ void ESPCommunication::SendMessage(const char* message)
 	Serial.println(message);
 }
 
-int ESPCommunication::ReceiveMessage()
+void ESPCommunication::ReceiveMessage(String& message)
 {
 	while (Serial1.available())
-	{
-		Serial.println("readin'");
-		Serial.println(Serial1.readStringUntil('\t'));
-		//int code = Serial1.read();
-		//Serial.println(code);
-		return 1;
-	}
+		message = Serial1.readStringUntil('\t');
 }
 

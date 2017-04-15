@@ -14,6 +14,9 @@
     <ClInclude Include="ESP\ESPCommunication.h">
       <Filter>ESP</Filter>
     </ClInclude>
+    <ClInclude Include="DHT\DHTController.h">
+      <Filter>DHT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RFID">
@@ -25,6 +28,9 @@
     <Filter Include="ESP">
       <UniqueIdentifier>{ae77e581-8fc6-419e-86dc-f49d08ab3f09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DHT">
+      <UniqueIdentifier>{a18d5b37-df06-47f8-835e-e2b652ca506c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RFID\RFIDController.cpp">
@@ -35,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="ESP\ESPCommunucation.cpp">
       <Filter>ESP</Filter>
+    </ClCompile>
+    <ClCompile Include="DHT\DHTController.cpp">
+      <Filter>DHT</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
