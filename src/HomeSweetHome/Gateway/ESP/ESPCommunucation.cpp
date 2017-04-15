@@ -21,5 +21,7 @@ void ESPCommunication::ReceiveMessage(String& message)
 {
 	while (Serial1.available())
 		message = Serial1.readStringUntil('\t');
+
+	Serial.println("Received");
 }
 

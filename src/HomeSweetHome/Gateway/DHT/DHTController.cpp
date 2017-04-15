@@ -1,9 +1,5 @@
 #include "DHTController.h"
 
-#include <dht11.h>
-
-dht11 DHT11;
-
 #define DHT11PIN 8
 
 void DHTController::Initialize()
@@ -13,15 +9,13 @@ void DHTController::Initialize()
 	Serial.println(DHT11LIB_VERSION);
 }
 
-void DHTController::GetTemperature()
+void DHTController::GetTemperature(int& temp, int& hum)
 {
 	int chk = DHT11.read(DHT11PIN);
 
-	Serial.print("Read sensor: ");
 	switch (chk)
 	{
 	case DHTLIB_OK:
-	Serial.println("OK");
 	break;
 	case DHTLIB_ERROR_CHECKSUM:
 	Serial.println("Checksum error");
@@ -34,10 +28,6 @@ void DHTController::GetTemperature()
 	break;
 	}
 
-	Serial.print("Humidity (%): ");
-	Serial.println((float)DHT11.humidity, 2);
-
-	Serial.print("Temperature (°C): ");
-	Serial.println((float)DHT11.temperature, 2);
-	
+	temp = DHT11.temperature;
+	hum = DHT11.humidity;
 }

@@ -8,6 +8,27 @@
     <VCCodeModel>
       <VCCodeMacros />
     </VCCodeModel>
-    <BreakPoints />
+    <BreakPoints>
+      <BreakPoint Index="1" Name="HeartbeatController.cs, line 25 character 9" Id="0f636c47-a34d-4aa5-bee0-ee95453ea69b" Enabled="1" Message="" MessageTextType="2" PreProcessedMessage="" Condition="" ConditionType="1" CurrentHits="0" File="d:\repositories\homemonitor\src\homesweethome\server\controllers\heartbeatcontroller.cs" FileLine="25" FileColumn="9" FunctionName="Server.Controllers.HeartbeatController.Heartbeat()" FunctionLineOffset="3" FunctionColumnOffset="1" HitCountTarget="1" HitCountType="1" Language="C#" LocationType="3" Tag="&lt;vmbp Id='0f636c47-a34d-4aa5-bee0-ee95453ea69b'/&gt;" Type="1" ToString="System.__ComObject" BreakWhenHit="1">
+        <Source>18	        {
+19	            this.context = context;
+20	        }
+21	
+22	        // GET: api/values
+23	        [HttpGet]
+24	        public async Task&lt;IActionResult&gt; Heartbeat()
+--&gt;25	        {
+26	            await context.Heartbeats.AddAsync(new Heartbeat
+27	            {
+28	                Address = HttpContext.Connection.RemoteIpAddress.ToString(),
+29	                Time = DateTime.Now
+30	            });
+31	
+32	            await context.SaveChangesAsync();
+33	            return Ok();
+34	        }
+</Source>
+      </BreakPoint>
+    </BreakPoints>
   </Program>
 </VisualMicro>

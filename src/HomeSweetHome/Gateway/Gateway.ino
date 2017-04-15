@@ -17,12 +17,19 @@ void setup()
 	esp.Initialize();
 }
 
+int temperature = 0;
+int humidity = 0;
+
 void loop() 
 {
-	dht.GetTemperature();
-
 	esp.ReceiveMessage(espMessage);
 	Serial.println(espMessage);
+
+	dht.GetTemperature(temperature, humidity);
+	char string[16];
+	sprintf(string, "TP:%d:%d\t", temperature, humidity);
+	Serial1.print(string);
+
 	//rfid.CheckForCard();
 
 	delay(1000);
