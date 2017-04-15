@@ -32,8 +32,8 @@ namespace Server
             // Add framework services.
             services.AddMvc();
 
-            string connection = @"Server=(localdb)\mssqllocaldb;Database=HomeDB;Trusted_Connection=True;";
-            services.AddDbContext<HomeContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<HomeContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
