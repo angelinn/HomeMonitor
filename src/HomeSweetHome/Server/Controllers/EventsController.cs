@@ -11,25 +11,27 @@ using ServiceLayer.DataAccess.Entities;
 namespace Server.Controllers
 {
     [Route("api/[controller]")]
-    public class HeartbeatController : Controller
+    public class EventsController : Controller
     {
         private readonly HomeContext context;
-        public HeartbeatController(HomeContext context)
+
+        public EventsController(HomeContext context)
         {
             this.context = context;
         }
 
-        // GET: api/values
         [HttpGet]
-        public async Task<IActionResult> Heartbeat()
+        public async Task<IActionResult> Event(string eventType)
         {
-            await context.Heartbeats.AddAsync(new Heartbeat
+            await context.Events.AddAsync(new Event
             {
                 Address = HttpContext.Connection.RemoteIpAddress.ToString(),
+                EventText = eventType,
                 Time = DateTime.Now
             });
 
             await context.SaveChangesAsync();
+
             return Ok();
         }
     }
