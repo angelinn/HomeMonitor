@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ESP", "ESP\ESP.vcxproj", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{50BD7C52-1952-4A26-9A2F-948D85756FC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{12538166-49B7-407D-88A0-20FDCC35BEBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,13 +21,11 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.ActiveCfg = Debug|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.Build.0 = Debug|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|Any CPU.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
 		{E016F38E-43AD-479F-980D-CB8F1420B975}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{E016F38E-43AD-479F-980D-CB8F1420B975}.Debug|x86.ActiveCfg = Debug|Win32
-		{E016F38E-43AD-479F-980D-CB8F1420B975}.Debug|x86.Build.0 = Debug|Win32
 		{E016F38E-43AD-479F-980D-CB8F1420B975}.Release|Any CPU.ActiveCfg = Release|Win32
 		{E016F38E-43AD-479F-980D-CB8F1420B975}.Release|x86.ActiveCfg = Release|Win32
 		{E016F38E-43AD-479F-980D-CB8F1420B975}.Release|x86.Build.0 = Release|Win32
@@ -37,6 +37,14 @@ Global
 		{50BD7C52-1952-4A26-9A2F-948D85756FC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50BD7C52-1952-4A26-9A2F-948D85756FC5}.Release|x86.ActiveCfg = Release|Any CPU
 		{50BD7C52-1952-4A26-9A2F-948D85756FC5}.Release|x86.Build.0 = Release|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Debug|x86.Build.0 = Debug|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Release|x86.ActiveCfg = Release|Any CPU
+		{12538166-49B7-407D-88A0-20FDCC35BEBB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
