@@ -11,6 +11,9 @@
     <ClInclude Include="Ethernet\EthernetController.h">
       <Filter>Ethernet</Filter>
     </ClInclude>
+    <ClInclude Include="ESP\ESPCommunication.h">
+      <Filter>ESP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RFID">
@@ -19,6 +22,9 @@
     <Filter Include="Ethernet">
       <UniqueIdentifier>{29d9c4b1-d160-4bc5-855b-72852b514043}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ESP">
+      <UniqueIdentifier>{ae77e581-8fc6-419e-86dc-f49d08ab3f09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RFID\RFIDController.cpp">
@@ -26,6 +32,9 @@
     </ClCompile>
     <ClCompile Include="Ethernet\EthernetController.cpp">
       <Filter>Ethernet</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP\ESPCommunucation.cpp">
+      <Filter>ESP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
