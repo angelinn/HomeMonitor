@@ -12,7 +12,7 @@ void setup()
 
 void processCommand(const String& command)
 {
-	Serial.write(OK);
+	Serial.write("OK MOTHERFUCKER\t");
 }
 
 void loop()
@@ -20,6 +20,8 @@ void loop()
 	while (Serial.available())
 		processCommand(Serial.readString());
 
-	Serial.write(HEARTBEAT);
+	Serial.write("HEARTBEAT\t");
 	delay(1000);
 }
+
+	

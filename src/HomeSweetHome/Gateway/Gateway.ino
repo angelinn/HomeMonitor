@@ -14,7 +14,8 @@ void setup()
 
 void loop() 
 {
-	String message = "";
-	esp.ReceiveMessage(message);
+	esp.ReceiveMessage();
 	//rfid.CheckForCard();
+
+	delay(1000);
 }

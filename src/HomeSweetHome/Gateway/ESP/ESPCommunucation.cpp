@@ -17,14 +17,15 @@ void ESPCommunication::SendMessage(const char* message)
 	Serial.println(message);
 }
 
-void ESPCommunication::ReceiveMessage(String& message)
+int ESPCommunication::ReceiveMessage()
 {
-	Serial.println("Waiting for message...");
 	while (Serial1.available())
 	{
-		Serial.println("In loop");
-		int code = Serial1.read();
-		Serial.println(code);
+		Serial.println("readin'");
+		Serial.println(Serial1.readStringUntil('\t'));
+		//int code = Serial1.read();
+		//Serial.println(code);
+		return 1;
 	}
-	delay(1000);
 }
+
