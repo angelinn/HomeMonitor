@@ -1,5 +1,7 @@
 #pragma once
 
+class String;
+
 class ESPCommunication
 {
 public:

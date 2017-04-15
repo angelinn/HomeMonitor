@@ -1,5 +1,8 @@
 #include "ESPCommunication.h"
 
+#include <HardwareSerial.h>
+#include <Arduino.h>
+
 void ESPCommunication::Initialize()
 {
 	Serial1.begin(9600);
@@ -16,10 +19,12 @@ void ESPCommunication::SendMessage(const char* message)
 
 void ESPCommunication::ReceiveMessage(String& message)
 {
+	Serial.println("Waiting for message...");
 	while (Serial1.available())
 	{
-		message = Serial1.readString();
-		// Debug
-		Serial.println(message);
+		Serial.println("In loop");
+		int code = Serial1.read();
+		Serial.println(code);
 	}
+	delay(1000);
 }
