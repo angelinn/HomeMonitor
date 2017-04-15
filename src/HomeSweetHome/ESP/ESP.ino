@@ -44,7 +44,7 @@ void loop()
 		processCommand(Serial.readStringUntil('\t'));
 
 	heartbeat();
-	delay(1000);
+	delay(3000);
 }
 
 void heartbeat()
