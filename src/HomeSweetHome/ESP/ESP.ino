@@ -26,7 +26,7 @@ void setup()
 		delay(1000);
 	}
 
-	WiFiMulti.addAP("The Pepper", "");
+	WiFiMulti.addAP("The Pepper", "9582757280");
 
 	sendRequest("http://192.168.0.104:55155/api/events?eventType=init");
 	Serial.println("Hello. I'm ESP8266. Nice to collaborate with you.\t");

@@ -17,6 +17,9 @@
     <ClInclude Include="DHT\DHTController.h">
       <Filter>DHT</Filter>
     </ClInclude>
+    <ClInclude Include="DoorSwitch\ReedSwitchController.h">
+      <Filter>DoorSwitch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RFID">
@@ -31,6 +34,9 @@
     <Filter Include="DHT">
       <UniqueIdentifier>{a18d5b37-df06-47f8-835e-e2b652ca506c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DoorSwitch">
+      <UniqueIdentifier>{e5d8bf71-ea91-43a8-a61e-c0478d371af3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RFID\RFIDController.cpp">
@@ -44,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="DHT\DHTController.cpp">
       <Filter>DHT</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorSwitch\ReedSwitchController.cpp">
+      <Filter>DoorSwitch</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
