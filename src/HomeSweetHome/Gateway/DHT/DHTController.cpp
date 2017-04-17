@@ -7,8 +7,8 @@ void DHTController::Initialize()
 {
 	lastRead = 0;
 
-	Serial.print("DHTController initialized on pin");
-	Serial.print(DHT11PIN);
+	Serial.print("DHTController initialized on pin ");
+	Serial.println(DHT11PIN);
 
 	Serial.print("DHT11 LIBRARY VERSION: ");
 	Serial.println(DHT11LIB_VERSION);
@@ -35,6 +35,9 @@ bool DHTController::GetTemperature(int& temp, int& hum)
 			Serial.println("Unknown error");
 			break;
 		}
+
+		if (chk)
+			return false;
 
 		temp = DHT11.temperature;
 		hum = DHT11.humidity;

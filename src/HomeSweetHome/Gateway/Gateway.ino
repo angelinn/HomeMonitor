@@ -31,16 +31,17 @@ void loop()
 		Serial.println(espMessage);
 	}
 
-	dht.GetTemperature(temperature, humidity);
-
-	char string[16];
-	sprintf(string, "TP:%d:%d\t", temperature, humidity);
-	esp.SendMessage(string);
-
+	if (dht.GetTemperature(temperature, humidity))
+	{
+		char string[16];
+		sprintf(string, "TP:%d:%d\t", temperature, humidity);
+		esp.SendMessage(string);
+	}
 	rfid.CheckForCard();
 
 	bool status = door.IsDoorClosed();
-	Serial.println(status);
+	if (!status)
+		Serial.println("Door is open.");
 
 
 	delay(1000);

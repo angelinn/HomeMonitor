@@ -3,22 +3,30 @@
 #include <HardwareSerial.h>
 #include <Arduino.h>
 
+#define ESP_SERIAL Serial1
+
 void ESPCommunication::Initialize()
 {
-	Serial1.begin(9600);
-	Serial.println("ESP8266 Initialized");
+	ESP_SERIAL.begin(9600);
+	Serial.print("ESP8266 Initialized on Hardware Serial ");
+	Serial.println(ESP_SERIAL);
 }
 
 void ESPCommunication::SendMessage(const char* message)
 {
-	Serial1.write(message);
+	ESP_SERIAL.write(message);
 }
 
 bool ESPCommunication::ReceiveMessage(String& message)
 {
-	while (Serial1.available())
-		message = Serial1.readStringUntil('\t');
+	if (ESP_SERIAL.available())
+	{
+		while (ESP_SERIAL.available())
+			message = Serial1.readStringUntil('\t');
 
-	return message != "";
+		return true;
+	}
+
+	return false;
 }
 
