@@ -11,7 +11,7 @@ namespace ServiceLayer.DataAccess
         public HomeContext(DbContextOptions<HomeContext> options) : base(options)
         {   }
 
-        public DbSet<Heartbeat> Heartbeats { get; set; }
+        public DbSet<Device> Devices { get; set; }
         public DbSet<Event> Events { get; set; }
     }
 }
