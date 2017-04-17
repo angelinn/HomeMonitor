@@ -13,7 +13,7 @@
 
 ESP8266WiFiMulti WiFiMulti;
 
-time_t lastHeartbeat = millis();
+unsigned long lastHeartbeat = millis();
 
 void setup()
 {
