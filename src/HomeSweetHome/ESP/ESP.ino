@@ -9,7 +9,7 @@
 #define KEY_END 2
 #define VALUE_BEGIN 3
 #define DELIMITER '\t'
-#define HEARTBEAT_INTERVAL 300000
+#define HEARTBEAT_INTERVAL 30000
 
 ESP8266WiFiMulti WiFiMulti;
 
