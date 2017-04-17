@@ -6,8 +6,9 @@ class DHTController
 {
 public:
 	void Initialize();
-	void GetTemperature(int &, int &);
+	bool GetTemperature(int &, int &);
 
 private:
 	dht11 DHT11;
+	time_t lastRead;
 };
