@@ -4,6 +4,8 @@
 
 class DHTController
 {
+	typedef unsigned time_t;
+
 public:
 	void Initialize();
 	bool GetTemperature(int &, int &);
