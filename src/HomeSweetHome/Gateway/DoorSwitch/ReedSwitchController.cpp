@@ -1,5 +1,7 @@
 #include "ReedSwitchController.h"
 
+#include <Arduino.h>
+
 #define REED_PIN 36
 
 void ReedSwitchController::Initialize()

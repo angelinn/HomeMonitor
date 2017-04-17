@@ -10,12 +10,12 @@ ReedSwitchController door;
 
 String espMessage = "";
 
-void setup() 
+void setup()
 {
 	Serial.begin(9600);
 
 	esp.Initialize();
-	//rfid.Initialize();
+	rfid.Initialize();
 	door.Initialize();
 	dht.Initialize();
 }
@@ -23,17 +23,21 @@ void setup()
 int temperature = 0;
 int humidity = 0;
 
-void loop() 
+void loop()
 {
-	esp.ReceiveMessage(espMessage);
-	Serial.println(espMessage);
+	if (esp.ReceiveMessage(espMessage))
+	{
+		Serial.print("Received: ");
+		Serial.println(espMessage);
+	}
 
 	dht.GetTemperature(temperature, humidity);
+
 	char string[16];
 	sprintf(string, "TP:%d:%d\t", temperature, humidity);
-	Serial1.print(string);
+	esp.SendMessage(string);
 
-	//rfid.CheckForCard();
+	rfid.CheckForCard();
 
 	bool status = door.IsDoorClosed();
 	Serial.println(status);

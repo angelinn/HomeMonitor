@@ -96,7 +96,7 @@
   <ItemGroup>
     <ClCompile Include="DHT\DHTController.cpp" />
     <ClCompile Include="DoorSwitch\ReedSwitchController.cpp" />
-    <ClCompile Include="ESP\ESPCommunucation.cpp" />
+    <ClCompile Include="ESP\ESPCommunication.cpp" />
     <ClCompile Include="Ethernet\EthernetController.cpp" />
     <ClCompile Include="RFID\RFIDController.cpp" />
   </ItemGroup>

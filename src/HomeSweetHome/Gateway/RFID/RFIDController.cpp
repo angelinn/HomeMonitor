@@ -13,7 +13,9 @@ void RFIDController::Initialize()
 	SPI.begin();			// Init SPI bus
 	mfrc.PCD_Init();	// Init MFRC522 card
 
-	Serial.println("RFIDController initialized.");
+	char message[256];
+	sprintf(message, "RFIDController initialized on pins: SS: %d, MOSI %d, MISO %d, SCK %d", SS_PIN, MOSI, MISO, SCK);
+	Serial.println(message);
 }
 
 void RFIDController::CheckForCard()

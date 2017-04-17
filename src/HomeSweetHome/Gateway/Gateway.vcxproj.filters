@@ -45,14 +45,14 @@
     <ClCompile Include="Ethernet\EthernetController.cpp">
       <Filter>Ethernet</Filter>
     </ClCompile>
-    <ClCompile Include="ESP\ESPCommunucation.cpp">
-      <Filter>ESP</Filter>
-    </ClCompile>
     <ClCompile Include="DHT\DHTController.cpp">
       <Filter>DHT</Filter>
     </ClCompile>
     <ClCompile Include="DoorSwitch\ReedSwitchController.cpp">
       <Filter>DoorSwitch</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP\ESPCommunication.cpp">
+      <Filter>ESP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -12,16 +12,13 @@ void ESPCommunication::Initialize()
 void ESPCommunication::SendMessage(const char* message)
 {
 	Serial1.write(message);
-
-	Serial.print("Written ");
-	Serial.println(message);
 }
 
-void ESPCommunication::ReceiveMessage(String& message)
+bool ESPCommunication::ReceiveMessage(String& message)
 {
 	while (Serial1.available())
 		message = Serial1.readStringUntil('\t');
 
-	Serial.println("Received");
+	return message != "";
 }
 
