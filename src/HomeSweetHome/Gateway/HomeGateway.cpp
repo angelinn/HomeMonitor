@@ -25,7 +25,10 @@ void HomeGateway::ExecuteLoop()
 		esp.SendMessage(string);
 	}
 
-	rfid.CheckForCard();
+	if (rfid.CheckForCard(espMessage))
+	{
+		esp.SendMessage(espMessage.c_str());
+	}
 
 	bool status = door.IsDoorClosed();
 	if (!status)

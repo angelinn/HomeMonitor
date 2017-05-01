@@ -38,7 +38,7 @@ public:
 
 public:
 	void Initialize();
-	String CheckForCard();
+	bool CheckForCard(String &);
 
 private:
 	MFRC522 mfrc;

@@ -18,7 +18,7 @@ void RFIDController::Initialize()
 	Serial.println(message);
 }
 
-String RFIDController::CheckForCard()
+bool RFIDController::CheckForCard(String& uid)
 {
 	if (!mfrc.PICC_IsNewCardPresent())
 		return;
@@ -31,7 +31,7 @@ String RFIDController::CheckForCard()
 	// mfrc.PICC_DumpToSerial(&(mfrc.uid));
 
 	Serial.print("Card UID:");
-	String uid = "RF:";
+	uid = "RF:";
 
 	for (byte i = 0; i < mfrc.uid.size; i++) 
 	{
