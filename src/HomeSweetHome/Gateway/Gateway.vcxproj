@@ -63,7 +63,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\betra\Documents\Arduino\libraries\dht11;C:\Users\betra\Documents\Arduino\libraries\MFRC522;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\libraries\SPI\src;C:\Users\betra\Documents\Arduino\libraries\EthernetM;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\bjgs31r1.33a\Micro Platforms\visualmicro\ide\libraries;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\libraries;C:\Users\betra\Documents\Arduino\libraries;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\cores\arduino;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\variants\mega;$(ProjectDir)..\Gateway;C:\Users\betra\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\avr\include\;C:\Users\betra\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\avr\include\avr\;C:\Users\betra\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\betra\Documents\Arduino\libraries\dht11;C:\Users\betra\Documents\Arduino\libraries\MFRC522;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\libraries\SPI\src;C:\Users\betra\Documents\Arduino\libraries\LiquidCrystal\src;C:\Users\betra\Documents\Arduino\libraries\EthernetM;$(ProjectDir)..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\bjgs31r1.33a\Micro Platforms\visualmicro\ide\libraries;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\libraries;C:\Users\betra\Documents\Arduino\libraries;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\cores\arduino;C:\Users\betra\AppData\Local\arduino15\packages\arduino\hardware\avr\1.6.18\variants\mega;$(ProjectDir)..\Gateway;C:\Users\betra\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\avr\include\;C:\Users\betra\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\avr\include\avr\;C:\Users\betra\AppData\Local\arduino15\packages\arduino\tools\avr-gcc\4.9.2-atmel3.5.4-arduino2\lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.Gateway.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <PreprocessorDefinitions>__AVR_ATmega2560__;F_CPU=16000000L;ARDUINO=10801;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -91,6 +91,7 @@
     <ClInclude Include="ESP\ESPCommunication.h" />
     <ClInclude Include="Ethernet\EthernetController.h" />
     <ClInclude Include="HomeGateway.h" />
+    <ClInclude Include="LCD\LCDController.h" />
     <ClInclude Include="RFID\RFIDController.h" />
     <ClInclude Include="__vm\.Gateway.vsarduino.h" />
   </ItemGroup>
@@ -100,6 +101,7 @@
     <ClCompile Include="ESP\ESPCommunication.cpp" />
     <ClCompile Include="Ethernet\EthernetController.cpp" />
     <ClCompile Include="HomeGateway.cpp" />
+    <ClCompile Include="LCD\LCDController.cpp" />
     <ClCompile Include="RFID\RFIDController.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -11,6 +11,7 @@ void HomeGateway::Initialize()
 	rfid.Initialize();
 	door.Initialize();
 	dht.Initialize();
+	lcd.Initialize();
 }
 
 void HomeGateway::ExecuteLoop()

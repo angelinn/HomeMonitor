@@ -4,6 +4,7 @@
 #include "DHT\DHTController.h"
 #include "DoorSwitch\ReedSwitchController.h"
 #include "RFID\RFIDController.h"
+#include "LCD\LCDController.h"
 
 class HomeGateway
 {
@@ -23,6 +24,7 @@ private:
 	DHTController dht;
 	ReedSwitchController door;
 	RFIDController rfid;
+	LCDController lcd;
 
 private:
 	String espMessage;
