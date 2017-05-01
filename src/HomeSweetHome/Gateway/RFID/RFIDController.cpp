@@ -18,7 +18,7 @@ void RFIDController::Initialize()
 	Serial.println(message);
 }
 
-void RFIDController::CheckForCard()
+String RFIDController::CheckForCard()
 {
 	if (!mfrc.PICC_IsNewCardPresent())
 		return;
@@ -28,5 +28,17 @@ void RFIDController::CheckForCard()
 		return;//if ReadCardSerial returns 1, the "uid" struct (see MFRC522.h lines 238-45)) contains the ID of the read card.
 
 	// Dump debug info about the card. PICC_HaltA() is automatically called.
-	mfrc.PICC_DumpToSerial(&(mfrc.uid));	
+	// mfrc.PICC_DumpToSerial(&(mfrc.uid));
+
+	Serial.print("Card UID:");
+	String uid = "RF:";
+
+	for (byte i = 0; i < mfrc.uid.size; i++) 
+	{
+		uid += mfrc.uid.uidByte[i] < 0x10 ? " 0" : " ";
+		uid += mfrc.uid.uidByte[i];
+	}
+	Serial.println(uid);
+
+	return uid;
 }

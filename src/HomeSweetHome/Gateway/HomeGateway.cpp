@@ -29,7 +29,10 @@ void HomeGateway::ExecuteLoop()
 
 	bool status = door.IsDoorClosed();
 	if (!status)
+	{
 		Serial.println("Door is open.");
+		esp.SendMessage("RS:1\t");
+	}
 
 
 	delay(LOOP_DELAY);

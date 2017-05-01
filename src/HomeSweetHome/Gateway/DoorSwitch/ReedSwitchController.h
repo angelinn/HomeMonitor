@@ -5,5 +5,4 @@ class ReedSwitchController
 public:
 	void Initialize();
 	bool IsDoorClosed();
-
 };
