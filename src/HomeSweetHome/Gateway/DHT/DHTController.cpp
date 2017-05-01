@@ -14,7 +14,7 @@ void DHTController::Initialize()
 	Serial.println(DHT11LIB_VERSION);
 }
 
-bool DHTController::GetTemperature(int& temp, int& hum)
+bool DHTController::UpdateTemperature()
 {
 	if (millis() - lastRead > POLL_INTERVAL)
 	{
@@ -36,13 +36,7 @@ bool DHTController::GetTemperature(int& temp, int& hum)
 			break;
 		}
 
-		if (chk)
-			return false;
-
-		temp = DHT11.temperature;
-		hum = DHT11.humidity;
-
-		return true;
+		return !chk;
 	}
 	
 	return false;

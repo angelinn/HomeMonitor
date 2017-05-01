@@ -11,6 +11,9 @@ public:
 	void Initialize();
 	void ExecuteLoop();
 
+private:
+	void ProcessMessage();
+
 	// Communication
 private:
 	ESPCommunication esp;
