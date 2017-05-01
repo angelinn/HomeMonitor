@@ -20,6 +20,7 @@
     <ClInclude Include="DoorSwitch\ReedSwitchController.h">
       <Filter>DoorSwitch</Filter>
     </ClInclude>
+    <ClInclude Include="HomeGateway.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RFID">
@@ -54,5 +55,6 @@
     <ClCompile Include="ESP\ESPCommunication.cpp">
       <Filter>ESP</Filter>
     </ClCompile>
+    <ClCompile Include="HomeGateway.cpp" />
   </ItemGroup>
 </Project>
