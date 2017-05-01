@@ -12,7 +12,12 @@ void ReedSwitchController::Initialize()
 	Serial.println(REED_PIN);
 }
 
-bool ReedSwitchController::IsDoorClosed()
+bool ReedSwitchController::IsDoorClosed(String& message)
 {
-	return digitalRead(REED_PIN);
+	int read = digitalRead(REED_PIN);
+	if (!read)
+		Serial.println("Door is open.");
+
+	message = "RS:" + read;
+	return read;
 }

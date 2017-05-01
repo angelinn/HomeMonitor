@@ -18,24 +18,14 @@ void HomeGateway::ExecuteLoop()
 	if (esp.ReceiveMessage(espMessage))
 		ProcessMessage();
 
-	if (dht.UpdateTemperature())
-	{
-		char string[16];
-		sprintf(string, "TP:%d:%d\t", dht.GetTemperature(), dht.GetHumidity());
-		esp.SendMessage(string);
-	}
+	if (dht.UpdateTemperature(espMessage))
+		esp.SendMessage(espMessage);
 
 	if (rfid.CheckForCard(espMessage))
-	{
-		esp.SendMessage(espMessage.c_str());
-	}
+		esp.SendMessage(espMessage);
 
-	bool status = door.IsDoorClosed();
-	if (!status)
-	{
-		Serial.println("Door is open.");
-		esp.SendMessage("RS:1\t");
-	}
+	if (!door.IsDoorClosed(espMessage))
+		esp.SendMessage(espMessage);
 
 
 	delay(LOOP_DELAY);

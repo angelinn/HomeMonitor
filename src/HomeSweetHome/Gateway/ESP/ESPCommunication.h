@@ -6,6 +6,6 @@ class ESPCommunication
 {
 public:
 	void Initialize();
-	void SendMessage(const char *);
+	void SendMessage(const String &);
 	bool ReceiveMessage(String &);
 };

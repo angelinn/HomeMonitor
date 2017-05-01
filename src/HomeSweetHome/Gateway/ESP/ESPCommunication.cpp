@@ -15,9 +15,9 @@ void ESPCommunication::Initialize()
 	Serial.println(ESP_SERIAL);
 }
 
-void ESPCommunication::SendMessage(const char* message)
+void ESPCommunication::SendMessage(const String& message)
 {
-	ESP_SERIAL.write(message);
+	ESP_SERIAL.print(message);
 }
 
 bool ESPCommunication::ReceiveMessage(String& message)

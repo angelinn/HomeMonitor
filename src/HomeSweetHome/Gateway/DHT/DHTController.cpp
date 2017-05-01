@@ -14,7 +14,7 @@ void DHTController::Initialize()
 	Serial.println(DHT11LIB_VERSION);
 }
 
-bool DHTController::UpdateTemperature()
+bool DHTController::UpdateTemperature(String& message)
 {
 	if (millis() - lastRead > POLL_INTERVAL)
 	{
@@ -27,16 +27,21 @@ bool DHTController::UpdateTemperature()
 			break;
 		case DHTLIB_ERROR_CHECKSUM:
 			Serial.println("DHTLIB_ERROR_CHECKSUM");
-			break;
+			return false;
 		case DHTLIB_ERROR_TIMEOUT:
 			Serial.println("DHTLIB_ERROR_TIMEOUT");
-			break;
+			return false;
 		default:
 			Serial.println("Unknown error");
-			break;
+			return false;
 		}
 
-		return !chk;
+		char string[16];
+		sprintf(string, "TP:%d:%d\t", DHT11.temperature, DHT11.humidity);
+
+		message = string;
+
+		return true;
 	}
 	
 	return false;
