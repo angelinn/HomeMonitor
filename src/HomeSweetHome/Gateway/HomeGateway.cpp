@@ -12,6 +12,15 @@ void HomeGateway::Initialize()
 	door.Initialize();
 	dht.Initialize();
 	lcd.Initialize();
+
+	lcd.WriteMessage("01 May 2017", 0);
+	dht.UpdateTemperature();
+	char string[16];
+	sprintf(string, "%dC", dht.GetTemperature());
+
+	lcd.WriteMessage(string, 1, 13);
+	lcd.WriteMessage("19:35", 1);
+
 }
 
 void HomeGateway::ExecuteLoop()
@@ -19,8 +28,15 @@ void HomeGateway::ExecuteLoop()
 	if (esp.ReceiveMessage(espMessage))
 		ProcessMessage();
 
-	if (dht.UpdateTemperature(espMessage))
+	if (dht.CheckForUpdate(espMessage))
+	{
 		esp.SendMessage(espMessage);
+
+		char string[16];
+		sprintf(string, "%dC", dht.GetTemperature());
+
+		lcd.WriteMessage(string, 1, 13);
+	}
 
 	if (rfid.CheckForCard(espMessage))
 		esp.SendMessage(espMessage);

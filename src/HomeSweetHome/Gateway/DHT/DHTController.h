@@ -6,7 +6,8 @@ class DHTController
 {
 public:
 	void Initialize();
-	bool UpdateTemperature(String& message);
+	bool CheckForUpdate(String& message, bool = false);
+	bool UpdateTemperature();
 
 public:
 	int GetTemperature() { return DHT11.temperature; }

@@ -9,7 +9,7 @@ public:
 
 public:
 	void Initialize();
-	void WriteMessage(const String &, uint8_t);
+	void WriteMessage(const String &, uint8_t, uint8_t = 0);
 
 private:
 	LiquidCrystal lcd;

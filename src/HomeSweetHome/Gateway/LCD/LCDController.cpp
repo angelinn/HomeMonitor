@@ -27,8 +27,8 @@ void LCDController::Initialize()
 	lcd.clear();
 }
 
-void LCDController::WriteMessage(const String& message, uint8_t row)
+void LCDController::WriteMessage(const String& message, uint8_t row, uint8_t cursor)
 {
-	lcd.setCursor(0, row);
+	lcd.setCursor(cursor, row);
 	lcd.print(message);
 }
