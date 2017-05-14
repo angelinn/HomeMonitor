@@ -15,6 +15,8 @@ public:
 
 private:
 	void ProcessMessage();
+	void UpdateTime();
+	void UpdateTemperature();
 
 	// Communication
 private:
@@ -32,4 +34,6 @@ private:
 	String espMessage;
 	int temperature = 0;
 	int humidity = 0;
+	String date;
+	String currentTime;
 };

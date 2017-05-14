@@ -14,10 +14,7 @@ void HomeGateway::Initialize()
 	lcd.Initialize();
 
 	dht.UpdateTemperature();
-	char string[16];
-	sprintf(string, "%dC", dht.GetTemperature());
-
-	lcd.WriteMessage(string, 1, 13);
+	UpdateTemperature();
 }
 
 void HomeGateway::ExecuteLoop()
@@ -28,11 +25,7 @@ void HomeGateway::ExecuteLoop()
 	if (dht.CheckForUpdate(espMessage))
 	{
 		esp.SendMessage(espMessage);
-
-		char string[16];
-		sprintf(string, "%dC", dht.GetTemperature());
-
-		lcd.WriteMessage(string, 1, 13);
+		UpdateTemperature();
 	}
 
 	if (rfid.CheckForCard(espMessage))
@@ -41,13 +34,15 @@ void HomeGateway::ExecuteLoop()
 	if (!door.IsDoorClosed(espMessage))
 		esp.SendMessage(espMessage);
 
+	if (time.Now(date, currentTime))
+		UpdateTime();
+
 
 	delay(LOOP_DELAY);
 }
 
 void HomeGateway::ProcessMessage()
 {
-	Serial.print("Received: ");
 	Serial.println(espMessage);
 
 	int index = -1;
@@ -55,14 +50,19 @@ void HomeGateway::ProcessMessage()
 	{
 		String dateTimeString = espMessage.substring(index + 3);
 		time.Set(dateTimeString.toInt());
-		//time.Set(1494763605);
-
-		String date, timing;
-		time.Now(date, timing);
-		lcd.WriteMessage(date, 0);
-		lcd.WriteMessage(timing, 1);
-
-		Serial.print("Time set to ");
-		Serial.println(dateTimeString);
 	}
+}
+
+void HomeGateway::UpdateTime()
+{
+	lcd.WriteMessage(date, 0);
+	lcd.WriteMessage(currentTime, 1);
+}
+
+void HomeGateway::UpdateTemperature()
+{
+	char string[4];
+	sprintf(string, "%dC", dht.GetTemperature());
+
+	lcd.WriteMessage(string, 1, 13);
 }
