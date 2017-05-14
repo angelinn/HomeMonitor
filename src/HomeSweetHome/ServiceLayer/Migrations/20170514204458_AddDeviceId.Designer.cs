@@ -9,9 +9,10 @@ using ServiceLayer.DataAccess.Enums;
 namespace ServiceLayer.Migrations
 {
     [DbContext(typeof(HomeContext))]
-    partial class HomeContextModelSnapshot : ModelSnapshot
+    [Migration("20170514204458_AddDeviceId")]
+    partial class AddDeviceId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

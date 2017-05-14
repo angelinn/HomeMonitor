@@ -21,12 +21,13 @@ namespace Server.Controllers
 
         // GET: api/values
         [HttpGet]
-        public async Task<IActionResult> Update(int id)
+        [Route("Heartbeat")]
+        public async Task<IActionResult> Heartbeat(int id)
         {
-            Device current = await context.Devices.FindAsync(id);
+            Device current = context.Devices.FirstOrDefault(d => d.DeviceId == id);
             bool newDevice = current == null;
             if (newDevice)
-                current = new Device();
+                current = new Device { DeviceId = id };
 
             current.LastAddress = HttpContext.Connection.RemoteIpAddress.ToString();
             current.LastHeartbeat = DateTime.Now;
@@ -42,6 +43,7 @@ namespace Server.Controllers
         }
 
         [HttpGet]
+        [Route("IsOnline")]
         public async Task<IActionResult> IsOnline(int id)
         {
             Device current = await context.Devices.FindAsync(id);
