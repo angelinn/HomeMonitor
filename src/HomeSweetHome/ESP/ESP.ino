@@ -24,13 +24,13 @@ unsigned long lastHeartbeat = millis();
 
 String buildUrl(String action, const String* params = nullptr)
 {
-	char buffer[128];
+	char buffer[256];
 	if (action == "move")
-		sprintf(buffer, "%s/movement", API_URL);
+		sprintf(buffer, "%s/events/movement", API_URL);
 	else if (action == "weather")
-		sprintf(buffer, "%s/weather?temperature=%d&humidity=%d", API_URL, params[0].c_str(), params[1].c_str());
+		sprintf(buffer, "%s/events/weather?temperature=%s&humidity=%s", API_URL, params[0].c_str(), params[1].c_str());
 	else if (action == "door")
-		sprintf(buffer, "%s/door?status=%d", params[0].c_str());
+		sprintf(buffer, "%s/events/door?status=%s", API_URL, params[0].c_str());
 
 	Serial.printf("Build %s\n", buffer);
 	return buffer;
@@ -69,14 +69,18 @@ void processCommand(const String& command)
 	Serial.printf("GOT VALUE %s\n", value.c_str());
 	if (key == "TP")
 	{
-		String params[] = { value.substring(0, 2), value.substring(2, 4) };
-		sendRequest(buildUrl("weather, params"));
+		String params[] = { value.substring(0, 2), value.substring(3, 5) };
+		sendRequest(buildUrl("weather", params));
 	}
 	else if (key == "RS")
 	{
 		String params[] = { value };
 		String res = sendRequest(buildUrl("door", params));
 		Serial.printf("RS:%s\t", res.c_str());
+	}
+	else if (key == "MV")
+	{
+		sendRequest(buildUrl("move"));
 	}
 }
 
