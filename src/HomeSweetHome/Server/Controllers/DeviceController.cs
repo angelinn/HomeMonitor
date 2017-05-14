@@ -31,8 +31,8 @@ namespace Server.Controllers
             current.LastAddress = HttpContext.Connection.RemoteIpAddress.ToString();
             current.LastHeartbeat = DateTime.Now;
 
-            if (!current.IsOnline)
-                current.IsOnline = true;
+            //if (!current.IsOnline)
+            //    current.IsOnline = true;
 
             if (newDevice)
                 await context.Devices.AddAsync(current);
@@ -51,17 +51,17 @@ namespace Server.Controllers
             if (current == null)
                 return BadRequest("Device not found.");
 
-            if (!current.IsOnline)
-                return Ok("{status: \"offline\"");
+            //if (!current.IsOnline)
+            //    return Ok("{status: \"offline\"");
 
-            if (current.IsOnline && (DateTime.Now - current.LastHeartbeat) < TimeSpan.FromSeconds(35))
-            {
-                current.IsOnline = false;
-                context.Update(current);
-                await context.SaveChangesAsync();
+            //if (current.IsOnline && (DateTime.Now - current.LastHeartbeat) < TimeSpan.FromSeconds(35))
+            //{
+            //    current.IsOnline = false;
+            //    context.Update(current);
+            //    await context.SaveChangesAsync();
 
-                return Ok("{status: \"offline\"");
-            }
+            //    return Ok("{status: \"offline\"");
+            //}
 
             return Ok("{status: \"online\"");
         }

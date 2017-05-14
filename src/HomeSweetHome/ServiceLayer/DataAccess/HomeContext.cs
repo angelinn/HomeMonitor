@@ -12,6 +12,10 @@ namespace ServiceLayer.DataAccess
         {   }
 
         public DbSet<Device> Devices { get; set; }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Authentication> Authentication { get; set; }
+        public DbSet<Door> Door { get; set; }
+        public DbSet<Weather> Weather { get; set; }
+        public DbSet<Movement> Movement { get; set; }
+
     }
 }

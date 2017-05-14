@@ -9,9 +9,10 @@ using ServiceLayer.DataAccess.Enums;
 namespace ServiceLayer.Migrations
 {
     [DbContext(typeof(HomeContext))]
-    partial class HomeContextModelSnapshot : ModelSnapshot
+    [Migration("20170514192254_SeparateTables")]
+    partial class SeparateTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

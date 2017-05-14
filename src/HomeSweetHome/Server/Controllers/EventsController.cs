@@ -23,12 +23,12 @@ namespace Server.Controllers
         [HttpGet]
         public async Task<IActionResult> Event(string eventType)
         {
-            await context.Events.AddAsync(new Event
-            {
-                Address = HttpContext.Connection.RemoteIpAddress.ToString(),
-                EventText = eventType,
-                Time = DateTime.Now
-            });
+            //await context.Events.AddAsync(new Event
+            //{
+            //    Address = HttpContext.Connection.RemoteIpAddress.ToString(),
+            //    EventText = eventType,
+            //    Time = DateTime.Now
+            //});
 
             await context.SaveChangesAsync();
 
