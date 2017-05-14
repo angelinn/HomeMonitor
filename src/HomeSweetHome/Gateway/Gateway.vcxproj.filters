@@ -24,6 +24,9 @@
     <ClInclude Include="LCD\LCDController.h">
       <Filter>LCD</Filter>
     </ClInclude>
+    <ClInclude Include="Timing\TimeKeeper.h">
+      <Filter>Timing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RFID">
@@ -43,6 +46,9 @@
     </Filter>
     <Filter Include="LCD">
       <UniqueIdentifier>{93d6978d-09d2-4b3b-8e23-d14257aa52c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timing">
+      <UniqueIdentifier>{e2907be3-a8c6-441d-aedc-fea05caaf6cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,9 @@
     <ClCompile Include="HomeGateway.cpp" />
     <ClCompile Include="LCD\LCDController.cpp">
       <Filter>LCD</Filter>
+    </ClCompile>
+    <ClCompile Include="Timing\TimeKeeper.cpp">
+      <Filter>Timing</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -13,14 +13,11 @@ void HomeGateway::Initialize()
 	dht.Initialize();
 	lcd.Initialize();
 
-	lcd.WriteMessage("01 May 2017", 0);
 	dht.UpdateTemperature();
 	char string[16];
 	sprintf(string, "%dC", dht.GetTemperature());
 
 	lcd.WriteMessage(string, 1, 13);
-	lcd.WriteMessage("19:35", 1);
-
 }
 
 void HomeGateway::ExecuteLoop()
@@ -52,4 +49,20 @@ void HomeGateway::ProcessMessage()
 {
 	Serial.print("Received: ");
 	Serial.println(espMessage);
+
+	int index = -1;
+	if ((index = espMessage.lastIndexOf("DT")) != -1)
+	{
+		String dateTimeString = espMessage.substring(index + 3);
+		time.Set(dateTimeString.toInt());
+		//time.Set(1494763605);
+
+		String date, timing;
+		time.Now(date, timing);
+		lcd.WriteMessage(date, 0);
+		lcd.WriteMessage(timing, 1);
+
+		Serial.print("Time set to ");
+		Serial.println(dateTimeString);
+	}
 }

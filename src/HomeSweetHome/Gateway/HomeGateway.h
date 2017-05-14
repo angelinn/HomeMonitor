@@ -5,6 +5,7 @@
 #include "DoorSwitch\ReedSwitchController.h"
 #include "RFID\RFIDController.h"
 #include "LCD\LCDController.h"
+#include "Timing\TimeKeeper.h"
 
 class HomeGateway
 {
@@ -25,6 +26,7 @@ private:
 	ReedSwitchController door;
 	RFIDController rfid;
 	LCDController lcd;
+	TimeKeeper time;
 
 private:
 	String espMessage;
