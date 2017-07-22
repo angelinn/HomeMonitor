@@ -5,5 +5,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.ESP.vsarduino.h" />
+    <ClInclude Include="Connection\HttpConnection.h">
+      <Filter>Connection</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection\ConnectionProvider.h">
+      <Filter>Connection</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Connection">
+      <UniqueIdentifier>{2a75f518-bc1f-421c-8597-3f3ffe29d375}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Connection\HttpConnection.cpp">
+      <Filter>Connection</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
