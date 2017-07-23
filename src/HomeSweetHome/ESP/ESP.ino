@@ -41,7 +41,7 @@ void initializeWifi()
 
 	for (uint8_t t = 4; t > 0; t--) 
 	{
-		Serial.printf("[SETUP] WAIT %d...\n", t);
+		Serial.printf("[SETUP] WAIT %d...\n\t", t);
 		Serial.flush();
 		delay(1000);
 	}
@@ -53,11 +53,12 @@ void initializeWifi()
 
 void processCommand(const String& command)
 {
+	Serial.printf("RECEIVED %s\n\t", command.c_str());
 	String key = command.substring(KEY_BEGIN, KEY_END);
 	String value = command.substring(VALUE_BEGIN);
 
-	Serial.printf("GOT %s\n", key.c_str());
-	Serial.printf("GOT VALUE %s\n", value.c_str());
+	Serial.printf("GOT %s\n\t", key.c_str());
+	Serial.printf("GOT VALUE %s\n\t", value.c_str());
 
 	if (key == "TP")
 	{

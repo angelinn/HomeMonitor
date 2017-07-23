@@ -18,7 +18,8 @@ String HttpConnection::requestTime()
 
 void HttpConnection::sendDoorData(const String& status)
 {
-	sendRequest(buildUrl("door", &status));
+	String params[] = { status };
+	sendRequest(buildUrl("door", params));
 }
 
 void HttpConnection::sendMoveData()
@@ -56,6 +57,8 @@ String HttpConnection::sendRequest(String address)
 		else
 			Serial.printf("[HTTP] GET %s ... failed, error: %s\n", address.c_str(), http.errorToString(httpCode).c_str());
 
+
+
 		http.end();
 	}
 
@@ -72,6 +75,6 @@ String HttpConnection::buildUrl(String action, const String* params)
 	else if (action == "door")
 		sprintf(buffer, "%s/events/door?status=%s", API_URL, params[0].c_str());
 
-	Serial.printf("Build %s\n", buffer);
+	Serial.printf("Build %s\n\t", buffer);
 	return buffer;
 }
