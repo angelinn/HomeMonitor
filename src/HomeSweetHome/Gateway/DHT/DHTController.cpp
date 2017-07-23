@@ -1,6 +1,6 @@
 #include "DHTController.h"
 
-#define DHT11PIN 8
+#define DHT11PIN 38
 #define POLL_INTERVAL 60000
 
 void DHTController::Initialize()
