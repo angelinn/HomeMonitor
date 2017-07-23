@@ -20,7 +20,7 @@ unsigned long lastHeartbeat = millis();
 
 void setup()
 {
-	Serial.begin(9600);
+	Serial.begin(74880);
 
 	initializeWifi();
 
@@ -41,7 +41,7 @@ void initializeWifi()
 
 	for (uint8_t t = 4; t > 0; t--) 
 	{
-		Serial.printf("[SETUP] WAIT %d...\n\t", t);
+		Serial.printf("[SETUP] WAIT %d...\t", t);
 		Serial.flush();
 		delay(1000);
 	}
@@ -53,12 +53,12 @@ void initializeWifi()
 
 void processCommand(const String& command)
 {
-	Serial.printf("RECEIVED %s\n\t", command.c_str());
+	Serial.printf("RECEIVED %s\t", command.c_str());
 	String key = command.substring(KEY_BEGIN, KEY_END);
 	String value = command.substring(VALUE_BEGIN);
 
-	Serial.printf("GOT %s\n\t", key.c_str());
-	Serial.printf("GOT VALUE %s\n\t", value.c_str());
+	Serial.printf("GOT %s\t", key.c_str());
+	Serial.printf("GOT VALUE %s\t", value.c_str());
 
 	if (key == "TP")
 	{
@@ -85,8 +85,7 @@ void loop()
 		heartbeat();
 		lastHeartbeat = millis();
 	}
-
-	delay(3000);
+	delay(1000);
 }
 
 void heartbeat()

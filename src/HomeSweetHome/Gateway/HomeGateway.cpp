@@ -1,7 +1,7 @@
 #include "HomeGateway.h"
 
-#define BAUD_RATE 9600
-#define LOOP_DELAY 1000
+#define BAUD_RATE 74880
+#define LOOP_DELAY 1
 
 void HomeGateway::Initialize()
 {
@@ -28,11 +28,11 @@ void HomeGateway::ExecuteLoop()
 		UpdateTemperature();
 	}
 
-	if (rfid.CheckForCard(espMessage))
-		esp.SendMessage(espMessage);
+	//if (rfid.CheckForCard(espMessage))
+	//	esp.SendMessage(espMessage);
 
-	if (!door.IsDoorClosed(espMessage))
-		esp.SendMessage(espMessage);
+	//if (!door.IsDoorClosed(espMessage))
+	//	esp.SendMessage(espMessage);
 
 	if (time.Now(date, currentTime))
 		UpdateTime();
@@ -55,6 +55,9 @@ void HomeGateway::ProcessMessage()
 
 void HomeGateway::UpdateTime()
 {
+	Serial.println(date);
+	Serial.println(currentTime);
+
 	lcd.WriteMessage(date, 0);
 	lcd.WriteMessage(currentTime, 1);
 }
@@ -64,5 +67,7 @@ void HomeGateway::UpdateTemperature()
 	char string[4];
 	sprintf(string, "%dC", dht.GetTemperature());
 
+	Serial.print("Temperature is ");
+	Serial.println(string);
 	lcd.WriteMessage(string, 1, 13);
 }

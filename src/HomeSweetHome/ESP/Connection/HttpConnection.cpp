@@ -2,7 +2,7 @@
 #include <ESP8266WiFiMulti.h>
 #include <ESP8266HTTPClient.h>
 
-#define API_URL "http://192.168.0.103:55155/api"
+#define API_URL "http://192.168.0.102:55155/api"
 #define HEARTBEAT_URL API_URL "" "/device/heartbeat?id=1"
 #define TIME_URL API_URL "" "/time"
 
@@ -46,7 +46,7 @@ String HttpConnection::sendRequest(String address)
 		// httpCode will be negative on error
 		if (httpCode > 0)
 		{
-			Serial.printf("[HTTP] GET %s ... code: %d\n", address.c_str(), httpCode);
+			Serial.printf("[HTTP] GET %s ... code: %d\t", address.c_str(), httpCode);
 
 			if (httpCode == HTTP_CODE_OK)
 			{
@@ -55,7 +55,7 @@ String HttpConnection::sendRequest(String address)
 			}
 		}
 		else
-			Serial.printf("[HTTP] GET %s ... failed, error: %s\n", address.c_str(), http.errorToString(httpCode).c_str());
+			Serial.printf("[HTTP] GET %s ... failed, error: %s\t", address.c_str(), http.errorToString(httpCode).c_str());
 
 
 
@@ -75,6 +75,5 @@ String HttpConnection::buildUrl(String action, const String* params)
 	else if (action == "door")
 		sprintf(buffer, "%s/events/door?status=%s", API_URL, params[0].c_str());
 
-	Serial.printf("Build %s\n\t", buffer);
 	return buffer;
 }
